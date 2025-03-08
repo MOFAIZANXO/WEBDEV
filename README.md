@@ -1,4 +1,4 @@
-# WEBDEVWeb development course
+# Web development course
 Teacher: Sir Usman Akram
 My Name: M.Faizan
 Section: sp25 AI
