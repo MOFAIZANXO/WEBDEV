@@ -1,0 +1,140 @@
+body {
+    font-family: 'brandon-grotesque', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.left-nav, .right-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.left-nav a, .right-nav a {
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    padding: 20px;
+}
+
+.login-container h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.signin-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8e7eb;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.create-account {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+}
+
+.footer {
+    padding: 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-top a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.newsletter {
+    margin-bottom: 20px;
+}
+
+.newsletter label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.newsletter input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+}
+
+.footer-bottom {
+    font-size: 12px;
+    color: #333;
+}
