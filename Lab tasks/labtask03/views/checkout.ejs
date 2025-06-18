@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ROKSANDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://cdn.shopify.com/s/files/1/0279/9822/4478/files/ROKSANDA_LOGO_LIGHT_BIG_900x_8ceb3bf0-1237-443d-94f9-8560546a4353_x320.png?v=1614303985" alt="ROKSANDA">
+        </div>
+        <div class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 10c-1 0-1.5 0.5-1.6 1.5l-0.8 7c-0.2 1.7 1.2 3.5 3 3.5h8.8c1.8 0 3.2-1.8 3-3.5l-0.8-7C18.5 10.5 18 10 17 10H7z"/>
+                <path d="M9 9c0-5 6-5 6 0"/>
+                <path d="M9 11.5c0 5 6 5 6 0"/>
+            </svg>
+        </div>
+    </header>
+    
+    <div class="checkout-container">
+        <div class="form-section">
+            <form id="checkoutForm">
+                <div>
+                    <h2>Contact</h2>
+                    <a href="#" class="login-link">Log in</a>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <div class="error" id="email-error">Please enter a valid email address</div>
+                    
+                    <div class="checkbox">
+                        <input type="checkbox" id="news-offers">
+                        <label for="news-offers">Email me with news and offers</label>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2>Delivery</h2>
+                    <select id="country" required>
+                        <option value="">Country/Region</option>
+                        <option value="PK" selected>Pakistan</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="US">United States</option>
+                    </select>
+                    <div class="error" id="country-error">Please select a country</div>
+                    
+                    <div>
+                        <div class="half-width">
+                            <input type="text" id="first-name" placeholder="First name" required>
+                            <div class="error" id="first-name-error">Please enter your first name</div>
+                        </div>
+                        <div class="half-width">
+                            <input type="text" id="last-name" placeholder="Last name">
+                        </div>
+                    </div>
+                    
+                    <input type="text" id="company" placeholder="Company (optional)">
+                    
+                    <input type="text" id="address" placeholder="Address" required>
+                    <div class="error" id="address-error">Please enter your address</div>
+                    
+                    <input type="text" id="apartment" placeholder="Apartment, suite, etc. (optional)">
+                    
+                    <div>
+                        <div class="half-width">
+                            <input type="text" id="city" placeholder="City" required>
+                            <div class="error" id="city-error">Please enter your city</div>
+                        </div>
+                        <div class="half-width">
+                            <input type="text" id="postcode" placeholder="Postal code (optional)">
+                        </div>
+                    </div>
+                    
+                    <input type="tel" id="phone" placeholder="Phone" required>
+                    <div class="error" id="phone-error">Please enter a valid phone number</div>
+                </div>
+                
+                <div>
+                    <h2>Shipping method</h2>
+                    <div class="checkbox" style="border: 1px solid #ddd; padding: 15px; border-radius: 4px;">
+                        <input type="radio" name="shipping" id="express-shipping" checked>
+                        <div style="flex: 1;">
+                            <label for="express-shipping" style="font-weight: 600;">Express Courier (Air)</label>
+                            <p style="color: #666; margin-top: 5px;">5 to 6 business days</p>
+                            <p style="color: #666;">Prepayment of duties and taxes supported</p>
+                            <p style="font-weight: 600; margin-top: 10px;">Rs 19,198.00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2>Duties and taxes</h2>
+                    <div class="checkbox">
+                        <input type="radio" name="duties" id="pay-now" checked>
+                        <label for="pay-now">Pay now</label>
+                    </div>
+                    <p style="color: #666; margin-left: 28px; margin-top: -10px; margin-bottom: 15px;">No additional fees on delivery</p>
+                    
+                    <div class="checkbox">
+                        <input type="radio" name="duties" id="pay-on-delivery">
+                        <label for="pay-on-delivery">Pay on delivery</label>
+                    </div>
+                    <p style="color: #666; margin-left: 28px; margin-top: -10px;">Additional fees may apply</p>
+                </div>
+                
+                <div>
+                    <h2>Payment</h2>
+                    <p style="color: #666; margin-bottom: 15px;">All transactions are secure and encrypted.</p>
+                    
+                    <div class="checkbox" style="margin-bottom: 15px;">
+                        <input type="radio" name="payment" id="credit-card" checked>
+                        <label for="credit-card">Credit or Debit Card</label>
+                    </div>
+                    
+                    <input type="text" id="card-number" placeholder="Card number" required>
+                    <div class="error" id="card-number-error">Please enter a valid card number</div>
+                    
+                    <div>
+                        <div class="half-width">
+                            <input type="text" id="expiry" placeholder="Expiration date (MM / YY)" required>
+                            <div class="error" id="expiry-error">Please enter a valid expiry date</div>
+                        </div>
+                        <div class="half-width">
+                            <input type="text" id="cvv" placeholder="Security code" required>
+                            <div class="error" id="cvv-error">Please enter a valid security code</div>
+                        </div>
+                    </div>
+                    
+                    <input type="text" id="card-name" placeholder="Name on card" required>
+                    <div class="error" id="card-name-error">Please enter the name on card</div>
+                    
+                    <div class="checkbox" style="margin-top: 15px;">
+                        <input type="checkbox" id="same-billing" checked>
+                        <label for="same-billing">Use shipping address as billing address</label>
+                    </div>
+                    
+                    <div class="checkbox" style="margin-top: 15px;">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    
+                    <div class="checkbox" style="margin-top: 15px;">
+                        <input type="checkbox" id="save-info">
+                        <label for="save-info">Save my information for a faster checkout with a Shop account</label>
+                    </div>
+                    
+                    <input type="tel" id="mobile-number" placeholder="Mobile phone number" value="+92">
+                </div>
+                
+                <button type="submit" class="pay-now-btn">Pay now</button>
+                <p class="secure-text">Secure and encrypted</p>
+                
+                <p style="color: #666; font-size: 12px; margin-top: 20px;">
+                    By clicking below and placing your order, you agree (i) to make your purchase from Global-e as merchant of record for this transaction, subject to Global-e's Terms & Conditions; (ii) that your information will be handled by Global-e in accordance with the Global-e Privacy Policy; and (iii) that your information (excluding the payment details) will be shared between Global-e and Roksanda.
+                </p>
+                
+                <p class="secure-text" style="margin-top: 20px;">
+                    Your info will be saved to a Shop account. By continuing, you agree to Shop's Terms of Service and acknowledge the Privacy Policy.
+                </p>
+                
+                <div class="footer-links">
+                    <a href="#">Refund policy</a>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms of service</a>
+                    <a href="#">Contact information</a>
+                </div>
+            </form>
+        </div>
+        
+        <div class="summary-section">
+            <div class="product-container">
+                <img src="https://cdn.shopify.com/s/files/1/0279/9822/4478/files/SS25_2PL5_H2330A-1_FIDA_FILCOUPE-FEATHER_DRESS_NAVY_ROKSANDA_1_60e1d8fc-3d6a-4058-883c-68d19a58a5e8_360x.jpg?v=1731935004" 
+                     alt="FIDA DRESS" class="product-image">
+                <div class="product-details">
+                    <div class="product-title">FIDA DRESS</div>
+                    <div>8</div>
+                    <div>Rs 1,103,400.00</div>
+                </div>
+            </div>
+            
+            <div class="discount-container">
+                <input type="text" placeholder="Discount code or gift card">
+                <button>Apply</button>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="price-row">
+                <span>Subtotal</span>
+                <span>Rs 1,103,400.00</span>
+            </div>
+            
+            <div class="price-row">
+                <span>Shipping</span>
+                <span>Rs 19,198.00</span>
+            </div>
+            
+            <div class="price-row">
+                <span>Duties</span>
+                <span>Rs 406,390.00</span>
+            </div>
+            
+            <div class="price-row">
+                <span>Taxes</span>
+                <span>Rs 560,221.00</span>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="price-row total-row">
+                <span>Total</span>
+                <span>PKR Rs 2,089,209.00</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h2>Payment Successful!</h2>
+            <p>Your order has been placed and will arrive soon.</p>
+            <button onclick="closeModal()">Continue Shopping</button>
+        </div>
+    </div>
+    
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <h2>Error</h2>
+            <p id="errorMessage">Please fill in all required fields correctly.</p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form validation
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                if(validateForm()) {
+                    // Show success modal if validation passes
+                    document.getElementById('successModal').style.display = 'flex';
+                }
+            });
+            
+            // Real-time validation for fields
+            document.getElementById('email').addEventListener('input', function() {
+                validateEmail(this);
+            });
+            
+            document.getElementById('phone').addEventListener('input', function() {
+                validatePhone(this);
+            });
+            
+            document.getElementById('card-number').addEventListener('input', function() {
+                validateCardNumber(this);
+            });
+            
+            document.getElementById('expiry').addEventListener('input', function() {
+                validateExpiry(this);
+            });
+            
+            document.getElementById('cvv').addEventListener('input', function() {
+                validateCVV(this);
+            });
+        });
+        
+        function validateForm() {
+            let isValid = true;
+            
+            // Reset all errors
+            document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
+            
+            // Validate email
+            if(!validateEmail(document.getElementById('email'))) {
+                isValid = false;
+            }
+            
+            // Validate required fields
+            const requiredFields = [
+                'country', 'first-name', 'address', 'city', 
+                'phone', 'card-number', 'expiry', 'cvv', 'card-name'
+            ];
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if(!field.value.trim()) {
+                    document.getElementById(`${fieldId}-error`).style.display = 'block';
+                    field.style.borderColor = '#d32f2f';
+                    isValid = false;
+                }
+            });
+            
+            // Validate phone
+            if(!validatePhone(document.getElementById('phone'))) {
+                isValid = false;
+            }
+            
+            // Validate card number
+            if(!validateCardNumber(document.getElementById('card-number'))) {
+                isValid = false;
+            }
+            
+            // Validate expiry date
+            if(!validateExpiry(document.getElementById('expiry'))) {
+                isValid = false;
+            }
+            
+            // Validate CVV
+            if(!validateCVV(document.getElementById('cvv'))) {
+                isValid = false;
+            }
+            
+            if(!isValid) {
+                document.getElementById('errorMessage').textContent = 'Please fill in all required fields correctly.';
+                document.getElementById('errorModal').style.display = 'flex';
+                // Scroll to first error
+                const firstError = document.querySelector('.error[style="display: block;"]');
+                if(firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+            
+            return isValid;
+        }
+        
+        function validateEmail(input) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValid = emailRegex.test(input.value);
+            
+            if(!isValid && input.value) {
+                document.getElementById('email-error').style.display = 'block';
+                input.style.borderColor = '#d32f2f';
+                return false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+                input.style.borderColor = isValid ? '#ddd' : '#d32f2f';
+                return isValid || !input.value;
+            }
+        }
+        
+        function validatePhone(input) {
+            const phoneRegex = /^[\d\s\-+]{6,}$/;
+            const isValid = phoneRegex.test(input.value);
+            
+            if(!isValid && input.value) {
+                document.getElementById('phone-error').style.display = 'block';
+                input.style.borderColor = '#d32f2f';
+                return false;
+            } else {
+                document.getElementById('phone-error').style.display = 'none';
+                input.style.borderColor = isValid ? '#ddd' : '#d32f2f';
+                return isValid || !input.value;
+            }
+        }
+        
+        function validateCardNumber(input) {
+            const cardRegex = /^[\d\s]{13,19}$/;
+            const isValid = cardRegex.test(input.value.replace(/\s/g, ''));
+            
+            if(!isValid && input.value) {
+                document.getElementById('card-number-error').style.display = 'block';
+                input.style.borderColor = '#d32f2f';
+                return false;
+            } else {
+                document.getElementById('card-number-error').style.display = 'none';
+                input.style.borderColor = isValid ? '#ddd' : '#d32f2f';
+                return isValid || !input.value;
+            }
+        }
+        
+        function validateExpiry(input) {
+            const expiryRegex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+            const isValid = expiryRegex.test(input.value);
+            
+            if(!isValid && input.value) {
+                document.getElementById('expiry-error').style.display = 'block';
+                input.style.borderColor = '#d32f2f';
+                return false;
+            } else {
+                document.getElementById('expiry-error').style.display = 'none';
+                input.style.borderColor = isValid ? '#ddd' : '#d32f2f';
+                return isValid || !input.value;
+            }
+        }
+        
+        function validateCVV(input) {
+            const cvvRegex = /^[0-9]{3,4}$/;
+            const isValid = cvvRegex.test(input.value);
+            
+            if(!isValid && input.value) {
+                document.getElementById('cvv-error').style.display = 'block';
+                input.style.borderColor = '#d32f2f';
+                return false;
+            } else {
+                document.getElementById('cvv-error').style.display = 'none';
+                input.style.borderColor = isValid ? '#ddd' : '#d32f2f';
+                return isValid || !input.value;
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.getElementById('errorModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

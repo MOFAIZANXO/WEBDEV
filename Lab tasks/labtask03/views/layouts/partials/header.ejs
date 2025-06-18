@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'Roksanda' %></title>
+    <link rel="stylesheet" href="/css/Roksanda.css">
+</head>
+<body>
+    <header>
+        <div class="left-nav">
+            <div><a href="/products">SHOP</a></div>
+            <div><a href="#">RUNWAY</a></div>
+            <div><a href="/about">ABOUT</a></div>
+            <div><a href="#">EN-GB</a></div>
+        </div>
+        <div class="logo">
+            <a href="/">
+                <img src="https://roksanda.com/cdn/shop/files/ROKSANDA_LOGO_LIGHT_BIG_360x.png?v=1614303939" 
+                     alt="Roksanda Logo" width="175" height="20.5">
+            </a>
+        </div>
+        <div class="right-nav">
+            <% if (user) { %>
+                <a href="/my-orders">My Orders</a>
+                <a href="/auth/logout">Logout</a>
+            <% } else { %>
+                <a href="/auth/login">Login</a>
+                <a href="/auth/signup">Signup</a>
+            <% } %>
+            <a href="#">Search</a>
+            <a href="#">Wishlist</a>
+            <a href="#">Cart</a>
+        </div>
+    </header>

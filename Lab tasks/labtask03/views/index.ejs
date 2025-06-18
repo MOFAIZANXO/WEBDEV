@@ -1,0 +1,21 @@
+<section class="hero">
+    <div class="hero-image">
+        <div class="hero-pic" style="background-image: url('https://wwd.com/wp-content/uploads/2022/02/Roksanda_RTW_Fall_2022_GG_1153.jpg');"></div>
+    </div>
+    <div class="hero-text">show</div>
+</section>
+<div class="hero-subtext">
+    AUTUMN WINTER 2025<br><p>discover our latest show</p>
+</div>
+
+<% products.forEach(product => { %>
+    <section class="hero">
+        <div class="hero-image">
+            <div class="hero-pic" style="background-image: url('<%= product.image %>');"></div>
+        </div>
+        <div class="hero-text"><%= product.name %></div>
+    </section>
+    <div class="hero-subtext">
+        <%= product.name.toUpperCase() %><br>Discover our <%= product.name.toLowerCase() %> collection
+    </div>
+<% }); %>
