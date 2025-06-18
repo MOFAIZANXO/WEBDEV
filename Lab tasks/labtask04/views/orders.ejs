@@ -1,0 +1,92 @@
+<div class="orders-container" style="max-width: 1400px; margin: 0 auto; padding: 40px 20px; font-family: 'Helvetica Neue', Arial, sans-serif;">
+    <!-- Header Section -->
+    <div class="orders-header" style="border-bottom: 1px solid #e5e5e5; padding-bottom: 30px; margin-bottom: 40px; text-align: center;">
+      <h1 style="font-size: 28px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">MY ORDERS</h1>
+      <p style="color: #666; font-size: 14px; letter-spacing: 1px;">Your order history with Roksanda</p>
+    </div>
+  
+    <% if (orders && orders.length > 0) { %>
+      <div class="row justify-content-center">
+        <% orders.forEach(order => { %>
+          <div class="col-md-8 mb-4">
+            <div class="card shadow-sm border-0" style="margin-bottom: 30px;">
+              <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <span><strong>Order Date:</strong> <%= new Date(order.orderDate).toLocaleDateString() %></span>
+                <form action="/orders/remove/<%= order._id %>" method="POST" style="margin: 0;">
+                  <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 20px; font-size: 0.9rem;">Remove</button>
+                </form>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title mb-3">Order Items</h5>
+                <ul class="list-group list-group-flush mb-3">
+                  <% order.items.forEach(item => { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <span><strong><%= item.name %></strong></span>
+                      <span>Qty: <%= item.quantity %></span>
+                      <span>Price: $<%= item.price %></span>
+                    </li>
+                  <% }); %>
+                </ul>
+                <div class="d-flex justify-content-end">
+                  <span class="fw-bold">Total Amount: $<%= order.totalAmount %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <!-- Empty State -->
+      <div class="empty-state" style="text-align: center; padding: 80px 0;">
+        <div style="font-size: 60px; color: #e5e5e5; margin-bottom: 30px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="display: inline-block; vertical-align: middle;">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </div>
+        <h2 style="font-size: 18px; font-weight: 400; letter-spacing: 1px; margin-bottom: 15px; color: #333;">YOUR ORDER HISTORY IS EMPTY</h2>
+        <p style="color: #888; font-size: 14px; letter-spacing: 0.5px; margin-bottom: 30px; max-width: 400px; margin-left: auto; margin-right: auto;">
+          You haven't placed any orders yet.
+        </p>
+        <a href="/products" style="display: inline-block; padding: 12px 30px; background-color: #000; color: #fff; text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s ease;">
+          START SHOPPING
+        </a>
+      </div>
+    <% } %>
+  
+    <!-- Single Footer Section -->
+    <div class="orders-footer" style="margin-top: 80px; padding-top: 40px; border-top: 1px solid #e5e5e5;">
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;">
+        <div style="width: 30%; margin-bottom: 30px;">
+          <h3 style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; font-weight: 400;">ABOUT US</h3>
+          <p style="font-size: 12px; color: #666; line-height: 1.6; letter-spacing: 0.5px;">
+            Your premier destination for luxury fashion.
+          </p>
+        </div>
+        <div style="width: 20%; margin-bottom: 30px;">
+          <h3 style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; font-weight: 400;">QUICK LINKS</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 10px;"><a href="/" style="color: #666; text-decoration: none; font-size: 12px; letter-spacing: 0.5px;">Home</a></li>
+            <li style="margin-bottom: 10px;"><a href="/products" style="color: #666; text-decoration: none; font-size: 12px; letter-spacing: 0.5px;">Shop</a></li>
+            <li style="margin-bottom: 10px;"><a href="/about" style="color: #666; text-decoration: none; font-size: 12px; letter-spacing: 0.5px;">About</a></li>
+            <li><a href="/contact" style="color: #666; text-decoration: none; font-size: 12px; letter-spacing: 0.5px;">Contact</a></li>
+          </ul>
+        </div>
+        <div style="width: 30%; margin-bottom: 30px;">
+          <h3 style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; font-weight: 400;">CONTACT</h3>
+          <p style="font-size: 12px; color: #666; line-height: 1.6; letter-spacing: 0.5px; margin-bottom: 10px;">
+            Email: info@roksanda.com
+          </p>
+          <p style="font-size: 12px; color: #666; line-height: 1.6; letter-spacing: 0.5px;">
+            Phone: +1 234 567 890
+          </p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="font-size: 11px; color: #999; letter-spacing: 0.5px;">
+          © 2024 Roksanda. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
